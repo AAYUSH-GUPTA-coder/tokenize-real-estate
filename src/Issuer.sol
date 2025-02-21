@@ -13,7 +13,6 @@ import {FunctionsSource} from "./FunctionsSource.sol";
  *      - Uses Chainlink Functions to fetch NFT metadata off-chain.
  *      - Ensures that only one issuance request can be processed at a time.
  *      - Integrates with the RealEstateToken contract for minting.
- *
  */
 contract Issuer is FunctionsClient, FunctionsSource, OwnerIsCreator {
     using FunctionsRequest for FunctionsRequest.Request;
@@ -48,9 +47,7 @@ contract Issuer is FunctionsClient, FunctionsSource, OwnerIsCreator {
      * @param realEstateToken Address of the deployed RealEstateToken contract.
      * @param functionsRouterAddress Address of the Chainlink Functions router.
      */
-    constructor(address realEstateToken, address functionsRouterAddress)
-        FunctionsClient(functionsRouterAddress)
-    {
+    constructor(address realEstateToken, address functionsRouterAddress) FunctionsClient(functionsRouterAddress) {
         i_realEstateToken = RealEstateToken(realEstateToken);
     }
 
@@ -64,19 +61,17 @@ contract Issuer is FunctionsClient, FunctionsSource, OwnerIsCreator {
      * @param donID The identifier for the Decentralized Oracle Network (DON).
      * @return requestId The ID of the Chainlink Functions request.
      */
-    function issue(
-        address to,
-        uint256 amount,
-        uint64 subscriptionId,
-        uint32 gasLimit,
-        bytes32 donID
-    ) external onlyOwner returns (bytes32 requestId) {
+    function issue(address to, uint256 amount, uint64 subscriptionId, uint32 gasLimit, bytes32 donID)
+        external
+        onlyOwner
+        returns (bytes32 requestId)
+    {
         // Revert if there is already a pending issuance request
         if (s_lastRequestId != bytes32(0)) revert LatestIssueInProgress();
 
         // Create and initialize a new Chainlink Functions request
         FunctionsRequest.Request memory req;
-        req.initializeRequestForInlineJavaScript(this.getNftMetadata());
+        req.initializeRequestForInlineJavaScript(this.getNftMetadata()); // Initialize the request with JS code
 
         // Encode the request and send it via Chainlink Functions
         requestId = _sendRequest(req.encodeCBOR(), subscriptionId, gasLimit, donID);
@@ -100,11 +95,7 @@ contract Issuer is FunctionsClient, FunctionsSource, OwnerIsCreator {
      * @param response Encoded NFT metadata (token URI).
      * @param err Encoded error message, if any occurred during the off-chain computation.
      */
-    function fulfillRequest(
-        bytes32 requestId,
-        bytes memory response,
-        bytes memory err
-    ) internal override {
+    function fulfillRequest(bytes32 requestId, bytes memory response, bytes memory err) internal override {
         // Revert if there was an error in the off-chain computation
         if (err.length != 0) {
             revert(string(err));
@@ -120,13 +111,7 @@ contract Issuer is FunctionsClient, FunctionsSource, OwnerIsCreator {
             FractionalizedNft memory fractionalizedNft = s_issuesInProgress[requestId];
 
             // Mint the fractionalized NFT via the RealEstateToken contract
-            i_realEstateToken.mint(
-                fractionalizedNft.to,
-                tokenId,
-                fractionalizedNft.amount,
-                "",
-                tokenURI
-            );
+            i_realEstateToken.mint(fractionalizedNft.to, tokenId, fractionalizedNft.amount, "", tokenURI);
 
             // Clear the pending request ID to allow new issuances
             s_lastRequestId = bytes32(0);
