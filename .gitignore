@@ -12,3 +12,9 @@ docs/
 
 # Dotenv file
 .env
+
+lib/ccip
+lib/openzeppelin-contracts
+lib/chainlink
+
+broadcast
