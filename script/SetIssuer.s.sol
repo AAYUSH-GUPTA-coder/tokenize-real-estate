@@ -36,3 +36,6 @@ contract SetIssuerScript is Script {
         vm.stopBroadcast();
     }
 }
+
+
+// forge script script/SetIssuer.s.sol:SetIssuerScript --account defaultKey --sender $WALLET_ADDRESS --rpc-url $FUJI_RPC_URL --broadcast -vv
