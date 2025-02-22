@@ -11,10 +11,10 @@ import {RealEstateToken} from "../src/RealEstateToken.sol";
  */
 contract SetIssuerScript is Script {
     // Address of the deployed RealEstateToken contract (replace with actual address before running)
-    address public constant REAL_ESTATE_TOKEN_ADDRESS = 0x0000000000000000000000000000000000000000; // <-- Update this
+    address public constant REAL_ESTATE_TOKEN_ADDRESS = 0xb8c7e1f97C2D6C1893B1fEe7D0c42A9468761908;
 
     // Address of the deployed Issuer contract (replace with actual address before running)
-    address public constant ISSUER_CONTRACT_ADDRESS = 0x0000000000000000000000000000000000000000; // <-- Update this
+    address public constant ISSUER_CONTRACT_ADDRESS = 0x1922968E9A8131FEda8bD04c1dD0312A78a0356C;
 
     /**
      * @dev Executes the setIssuer function on the RealEstateToken contract.

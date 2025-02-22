@@ -12,7 +12,7 @@ import {Issuer} from "../src/Issuer.sol";
  */
 contract DeployIssuer is Script {
     // Address of the deployed RealEstateToken contract (replace with actual address before running)
-    address public constant REAL_ESTATE_TOKEN_ADDRESS = address(0); // Update the address of RealEstateToken contract
+    address public constant REAL_ESTATE_TOKEN_ADDRESS = 0xb8c7e1f97C2D6C1893B1fEe7D0c42A9468761908; // Update the address of RealEstateToken contract
 
     // Chainlink Functions router address for Avalanche Fuji
     address public constant FUNCTIONS_ROUTER_ADDRESS = 0xA9d587a00A31A52Ed70D6026794a8FC5E2F5dCb0;
@@ -34,3 +34,6 @@ contract DeployIssuer is Script {
         vm.stopBroadcast();
     }
 }
+
+
+// forge script script/DeployIssuer.s.sol:DeployIssuer --account defaultKey --sender $WALLET_ADDRESS --rpc-url $FUJI_RPC_URL --broadcast -vv
