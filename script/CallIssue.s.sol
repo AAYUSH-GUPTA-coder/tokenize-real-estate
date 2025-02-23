@@ -10,10 +10,10 @@ import {Issuer} from "../src/Issuer.sol";
  *      The script issues an ERC-1155 token to a specified address with provided Chainlink Functions parameters.
  */
 contract CallIssue is Script {
-    // Address of the deployed Issuer contract (replace with actual address before running)
+    // Address of the deployed Issuer contract
     address public constant ISSUER_CONTRACT_ADDRESS = 0x1922968E9A8131FEda8bD04c1dD0312A78a0356C; 
 
-    // Address of Alice (or any address you own)
+    // Address of Alice / any address you own
     address public constant ALICE_ADDRESS = 0xdbea613E2bBD96d84c75f1856E088e8429E1Be72; // Account 1 address
 
     // Chainlink Functions parameters
