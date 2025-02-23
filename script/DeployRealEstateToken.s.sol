@@ -37,5 +37,3 @@ contract DeployRealEstateToken is Script {
 
 
 // forge script script/DeployRealEstateToken.s.sol:DeployRealEstateToken --account defaultKey --sender $WALLET_ADDRESS --rpc-url $FUJI_RPC_URL --broadcast -vv
-
-// forge script script/DeployRealEstateToken.s.sol:DeployRealEstateToken --account defaultKey --sender $WALLET_ADDRESS --rpc-url $SEPOLIA_RPC_URL --broadcast -vv
