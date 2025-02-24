@@ -11,12 +11,12 @@ import {RealEstateToken} from "../src/RealEstateToken.sol";
  */
 contract EnableChainScript is Script {
     // Chain selector for the destination chain
-    uint64 public constant DEST_CHAIN_SELECTOR = 16015286601757825753; // ChainID of Ethereum Sepolia
+    uint64 public constant DEST_CHAIN_SELECTOR = 10344971235874465080; // ChainID of Base Sepolia
 
     address public constant REAL_ESTATE_TOKEN_ADDRESS = 0xb8c7e1f97C2D6C1893B1fEe7D0c42A9468761908; // Address of the RealEstateToken contract on the Avalanche Fuji chain
 
     // Address of the cross-chain NFT contract on the destination chain. Actually it is the address of RealEstateToken contract
-    address public constant XNFT_ADDRESS = 0xC54660Abf8Dc9b83A35bD9feC5d5E82b65eE0250; // Address of the XNFT_ADDRESS / RealEstateToken on the ethereum Sepolia chain
+    address public constant XNFT_ADDRESS = 0x9768C04C9bC6297bB97ebc7FdE519018A693Bc86; // Address of the XNFT_ADDRESS / RealEstateToken on the Base Sepolia chain
 
     // Extra arguments for CCIP
     bytes public constant CCIP_EXTRA_ARGS = ""; // intentially putting the value to zero
