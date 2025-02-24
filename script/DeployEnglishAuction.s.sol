@@ -11,8 +11,8 @@ import {EnglishAuction} from "../src/use-cases/EnglishAuction.sol";
  *      fractionalized real estate token address.
  */
 contract DeployEnglishAuction is Script {
-    // Address of the fractionalized real estate ERC1155 token (update before running)
-    address public constant FRACTIONALIZED_REAL_ESTATE_TOKEN_ADDRESS = 0x0000000000000000000000000000000000000000; // <-- Update this address
+    // Address of the fractionalized real estate ERC1155 token
+    address public constant FRACTIONALIZED_REAL_ESTATE_TOKEN_ADDRESS = 0xb8c7e1f97C2D6C1893B1fEe7D0c42A9468761908;
 
     /**
      * @dev Executes the deployment of the EnglishAuction contract.
