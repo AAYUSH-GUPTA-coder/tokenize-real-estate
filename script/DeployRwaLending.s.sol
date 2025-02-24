@@ -12,8 +12,8 @@ import {RwaLending} from "../src/use-cases/RwaLending.sol";
  *      and heartbeat for the price feed.
  */
 contract DeployRwaLending is Script {
-    // Address of the deployed RealEstateToken contract (replace with actual address before running)
-    address public constant REAL_ESTATE_TOKEN_ADDRESS = 0x0000000000000000000000000000000000000000; // <-- Update this
+    // Address of the deployed RealEstateToken contract 
+    address public constant REAL_ESTATE_TOKEN_ADDRESS = 0xb8c7e1f97C2D6C1893B1fEe7D0c42A9468761908; 
 
     // Address of the USDC token on the network
     address public constant USDC_ADDRESS = 0x5425890298aed601595a70AB815c96711a31Bc65;
